@@ -90,8 +90,8 @@ trait TradeNetActionRequest
       'production' => $this->productionURL,
       'department_code' => $this->OGADepartmentCode,
       'section_code' => $this->OGASectionCode,
-      'username' => $this->TRADENET_USERNAME,
-      'password' => $this->TRADENET_PASSWORD,
+      'username' => $this->username,
+      'password' => $this->password,
       'grant_type' => $this->grantType,
     ];
   }
