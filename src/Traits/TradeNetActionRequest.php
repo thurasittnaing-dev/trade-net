@@ -80,4 +80,19 @@ trait TradeNetActionRequest
     $responseData = json_decode($response->getBody()->getContents(), true);
     return $responseData;
   }
+
+  public function getConfiguration()
+  {
+    return [
+      'service_status' => $this->serviceStatus,
+      'content_type' => $this->contentType,
+      'uat' => $this->uatURL,
+      'production' => $this->productionURL,
+      'department_code' => $this->OGADepartmentCode,
+      'section_code' => $this->OGASectionCode,
+      'username' => $this->TRADENET_USERNAME,
+      'password' => $this->TRADENET_PASSWORD,
+      'grant_type' => $this->grantType,
+    ];
+  }
 }

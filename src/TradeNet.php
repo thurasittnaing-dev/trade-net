@@ -64,4 +64,10 @@ class TradeNet
     $instance = new self();
     return $instance->extendOGAProcess($data);
   }
+
+  public static function getConfig()
+  {
+    $instance = new self();
+    return $instance->getConfiguration();
+  }
 }
