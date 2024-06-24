@@ -1,0 +1,17 @@
+{
+    "name": "thurasn/trade-net",
+    "description": "TradeNet API Helper",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Thurasn\\TradeNet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Thura Sitt Naing",
+            "email": "thurasittnaing.development@gmail.com"
+        }
+    ],
+    "require": {}
+}
