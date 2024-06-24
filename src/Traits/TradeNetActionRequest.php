@@ -1,6 +1,6 @@
 <?php
 
-namespace Traits;
+namespace Thurasn\TradeNet\Traits;
 
 use Illuminate\Support\Facades\Log;
 

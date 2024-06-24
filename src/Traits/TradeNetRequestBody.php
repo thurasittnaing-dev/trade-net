@@ -1,6 +1,6 @@
 <?php
 
-namespace Traits;
+namespace Thurasn\TradeNet\Traits;
 
 trait TradeNetRequestBody
 {

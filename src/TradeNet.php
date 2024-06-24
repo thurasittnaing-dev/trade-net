@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Thurasn\TradeNet;
 
 use GuzzleHttp\Client;
 use Traits\TradeNetActionRequest;
