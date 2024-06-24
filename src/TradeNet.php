@@ -3,8 +3,9 @@
 namespace Thurasn\TradeNet;
 
 use GuzzleHttp\Client;
-use Traits\TradeNetActionRequest;
-use Traits\TradeNetRequestBody;
+use Thurasn\TradeNet\Traits\TradeNetActionRequest;
+use Thurasn\TradeNet\Traits\TradeNetRequestBody;
+
 
 class TradeNet
 {
