@@ -38,49 +38,40 @@ trait TradeNetActionRequest
     return $this->token;
   }
 
-  public function newOGAProcess($data)
-  {
 
-    $this->getOAuthToken();
-    if (is_null($this->token)) {
-      return [
-        'MessageType' => 'oauth-error'
-      ];
+  // OGA Action Request
+  public function ogaActionRequest($data, $type): string
+  {
+    switch ($type) {
+      case 'new':
+        $body = $this->buildNewOgaRequestBody($data);
+        break;
+
+      case 'amend':
+        $body = $this->buildAmendOgaRequestBody($data);
+        break;
+
+      case 'extend':
+        $body = $this->buildExtendOgaRequestBody($data);
+        break;
+
+      default:
+        $body = null;
+        break;
     }
 
-    $response = $this->client->request('POST', $this->getApiURL('new'), [
+    $response = $this->client->request('POST', $this->getApiURL($type), [
       'headers' => [
-        'Content-Type' => $this->contentType,
-        'Authen-Token' => "bearer $this->token"
+        'Content-Type' => $this->contentType
       ],
-      'body' => $this->buildNewOGARequestBody($data)
+      'body' => $body
     ]);
 
     $responseData = json_decode($response->getBody()->getContents(), true);
     return $responseData;
   }
 
-  public function extendOGAProcess($data)
-  {
-    $this->getOAuthToken();
-    if (is_null($this->token)) {
-      return [
-        'MessageType' => 'oauth-error'
-      ];
-    }
-
-    $response = $this->client->request('POST', $this->getApiURL('extension'), [
-      'headers' => [
-        'Content-Type' => $this->contentType,
-        'Authen-Token' => "bearer $this->token"
-      ],
-      'body' => $this->buildExtendOGARequestBody($data)
-    ]);
-
-    $responseData = json_decode($response->getBody()->getContents(), true);
-    return $responseData;
-  }
-
+  // Get Configuration
   public function getConfiguration()
   {
     return [

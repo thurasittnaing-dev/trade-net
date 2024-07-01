@@ -26,7 +26,7 @@ class TradeNet
   protected $grantType;
 
   private $endpoints = [
-    'auth' => '/oauth/token',
+    'auth' => '/oauth/token', // No More Required (instead using OAuth-Token use => white-list-ip)
     'new' => '/api/OGA/New',
     'amend' => '/api/OGA/Amend',
     'extension' => '/api/OGA/Extension',

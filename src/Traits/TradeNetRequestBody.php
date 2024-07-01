@@ -13,7 +13,7 @@ trait TradeNetRequestBody
     ];
   }
 
-  private function buildNewOGARequestBody($data): string
+  private function buildNewOgaRequestBody($data): string
   {
     return json_encode([
       'OGADepartmentCode' => $this->OGADepartmentCode,
@@ -31,7 +31,25 @@ trait TradeNetRequestBody
     ]);
   }
 
-  private function buildExtendOGARequestBody($data): string
+  private function buildAmendOgaRequestBody($data): string
+  {
+    return json_encode([
+      'OGADepartmentCode' => $this->OGADepartmentCode,
+      'OGASectionCode' =>  $this->OGASectionCode,
+      'ReferenceNo' => $data['ReferenceNo'],
+      'OfficeLetterNo' =>  $data['OfficeLetterNo'],
+      'OfficeLetterDate' =>  $data['OfficeLetterDate'],
+      'CompanyRegistrationNo' =>  $data['CompanyRegistrationNo'],
+      'ValidDateFrom' =>  $data['ValidDateFrom'],
+      'ValidDateTo' => $data['ValidDateTo'],
+      'Allowance' =>  $data['Allowance'],
+      'UsedOnce' => 1,
+      'RecommendationPDFURL' => $data['RecommendationPDFURL'],
+      'Terminate' => 1,
+    ]);
+  }
+
+  private function buildExtendOgaRequestBody($data): string
   {
     return json_encode([
       'ReferenceNo' => $data['ReferenceNo'],
