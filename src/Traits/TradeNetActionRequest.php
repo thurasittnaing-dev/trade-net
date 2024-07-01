@@ -40,7 +40,7 @@ trait TradeNetActionRequest
 
 
   // OGA Action Request
-  public function ogaActionRequest($data, $type): string
+  public function ogaActionRequest($data, $type)
   {
     switch ($type) {
       case 'new':
