@@ -54,18 +54,28 @@ class TradeNet
     return $baseUrl . $this->endpoints[$key];
   }
 
-  public static function newOGAProcessRequest($data)
+  //  New
+  public static function newOgaProcessRequest($data)
   {
     $instance = new self();
-    return $instance->newOGAProcess($data);
+    return $instance->ogaActionRequest($data, 'new');
   }
 
-  public static function extendOGARequest($data)
+  // Amend
+  public static function amendOgaProcessRequest($data)
   {
     $instance = new self();
-    return $instance->extendOGAProcess($data);
+    return $instance->ogaActionRequest($data, 'amend');
   }
 
+  // Extend
+  public static function extendOgaRequest($data)
+  {
+    $instance = new self();
+    return $instance->ogaActionRequest($data, 'extend');
+  }
+
+  // Config
   public static function getConfig()
   {
     $instance = new self();
